@@ -14,20 +14,7 @@ import java.util.stream.Collectors;
 public class ParkingService {
 
     private static Map<String, Parking> parkingMap = new HashMap<>();
-
-    static {
-
-        String id = getUUID();
-        String id1 = getUUID();
-        Parking parking = new Parking(id, "msx-1234", "MA", "Palio", "Azul");
-        Parking parking1 = new Parking(id1, "mpp-1224", "BA", "Gol", "Preto");
-
-        parkingMap.put(id, parking);
-        parkingMap.put(id1, parking1);
-
-
-    }
-
+    
     public List<Parking> findAll() {
         return parkingMap.values().stream().collect(Collectors.toList());
     }
