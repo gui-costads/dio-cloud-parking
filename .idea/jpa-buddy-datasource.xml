@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JpbDataSourceConfig">
+    <data-sources>
+      <data-source id="68abd9bc-fd1f-4e08-8ca3-692c888eb85e" name="parking-db" url="jdbc:postgresql://localhost:5432/parking" driverClass="org.postgresql.Driver" />
+    </data-sources>
+  </component>
+</project>

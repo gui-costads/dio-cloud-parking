@@ -1,9 +1,12 @@
 package one.digitalinnovation.parking.model;
 
-import java.time.LocalDate;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.time.LocalDateTime;
 
+@Entity
 public class Parking {
+    @Id
     private String id;
     private String license;
     private String state;
@@ -11,7 +14,6 @@ public class Parking {
     private String color;
     private LocalDateTime entryDate;
     private LocalDateTime exitDate;
-
     private Double bill;
 
     public Parking(String id, String license, String state, String model, String color) {
@@ -79,5 +81,13 @@ public class Parking {
 
     public void setExitDate(LocalDateTime exitDate) {
         this.exitDate = exitDate;
+    }
+
+    public Double getBill() {
+        return bill;
+    }
+
+    public void setBill(Double bill) {
+        this.bill = bill;
     }
 }
