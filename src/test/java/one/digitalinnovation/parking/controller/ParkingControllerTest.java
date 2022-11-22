@@ -2,16 +2,14 @@ package one.digitalinnovation.parking.controller;
 
 import io.restassured.RestAssured;
 import one.digitalinnovation.parking.controller.dto.ParkingCreateDTO;
-import org.hamcrest.Matcher;
 import org.hamcrest.Matchers;
+import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.server.LocalManagementPort;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.MediaType;
 
-import java.awt.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class ParkingControllerTest extends AbstractContainerBase {
@@ -24,13 +22,14 @@ class ParkingControllerTest extends AbstractContainerBase {
     }
 
     @Test
-    void    whenFindAllThenCheckResult() {
+    void whenFindAllThenCheckResult() {
         RestAssured.given()
+                .auth()
+                .basic("user","123456")
                 .when()
                 .get("/parking")
                 .then()
-                .statusCode(200)
-                .body("license", Matchers.contains("hki-1222"));
+                .statusCode(200);
     }
 
     @Test
@@ -42,6 +41,8 @@ class ParkingControllerTest extends AbstractContainerBase {
         createDTO.setState("RS");
 
         RestAssured.given()
+                .auth()
+                .basic("user","123456")
                 .when()
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
                 .body(createDTO)

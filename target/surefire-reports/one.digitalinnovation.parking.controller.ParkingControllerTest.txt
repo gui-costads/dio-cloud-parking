@@ -1,4 +1,11 @@
 -------------------------------------------------------------------------------
 Test set: one.digitalinnovation.parking.controller.ParkingControllerTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.061 s - in one.digitalinnovation.parking.controller.ParkingControllerTest
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 29.057 s <<< FAILURE! - in one.digitalinnovation.parking.controller.ParkingControllerTest
+whenCreateThenCheckIsCreated  Time elapsed: 1.656 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <201> but was <403>.
+
+	at one.digitalinnovation.parking.controller.ParkingControllerTest.whenCreateThenCheckIsCreated(ParkingControllerTest.java:51)
+
