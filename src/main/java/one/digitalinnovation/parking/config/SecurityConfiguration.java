@@ -28,6 +28,7 @@ public class SecurityConfiguration {
                             try {
                                 authorize
                                         .antMatchers("/auth/**",
+                                                "/",
                                                 "/swagger-ui/**",
                                                 "/swagger-ui.html",
                                                 "/swagger-resources/**",

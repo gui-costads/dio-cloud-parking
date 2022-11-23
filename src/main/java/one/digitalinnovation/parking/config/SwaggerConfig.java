@@ -4,6 +4,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -21,7 +23,7 @@ import java.util.function.Predicate;
 @Configuration
 @EnableSwagger2
 @EnableWebMvc
-public class SwaggerConfig {
+public class SwaggerConfig implements WebMvcConfigurer {
     public Docket api(){
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfos())
@@ -32,6 +34,10 @@ public class SwaggerConfig {
                 .apis(Predicate.not(RequestHandlerSelectors.basePackage("/basic-error-controller.*")))
                 .build()
                ;
+    }
+
+    public void addViewControllers(ViewControllerRegistry registry){
+        registry.addRedirectViewController("/","/swagger-ui/index.html");
     }
 
     private SecurityScheme basicAuthScheme() {
