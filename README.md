@@ -31,3 +31,11 @@
 
 ### Link para projeto no heroku
 - [Api-Swagger(Heroku)](https://parking-gc.herokuapp.com/)
+
+### Tecnologias utilizadas
+-`Java`
+-`Spring Boot`
+-`Spring Security`
+-`PostgresSql`
+-`Swagger`
+-`Rest Assured`
